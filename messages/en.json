@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "title": "Rafael Xavier Oliveira — Software Engineer",
+    "description": "Software engineer building products end-to-end — from interfaces and APIs to AI systems, developer tooling and data-intensive backends.",
+    "ogAlt": "Rafael Xavier Oliveira — Software Engineer, Fullstack Developer"
+  },
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "stack": "Stack",
+    "contact": "Contact",
+    "skipToContent": "Skip to content",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
+  },
+  "header": {
+    "themeToLight": "Switch to light theme",
+    "themeToDark": "Switch to dark theme",
+    "language": "Switch language"
+  },
+  "hero": {
+    "eyebrow": "Software Engineer · Fullstack Developer",
+    "body": "I build software end-to-end — from modern web interfaces and backend systems to AI agents, developer tools and data-intensive applications.",
+    "meta": "Computer Science @ PUC Minas",
+    "location": "Belo Horizonte, Brazil",
+    "stackLine": "Go · TypeScript · Python · Java · React · Next.js",
+    "ctaPrimary": "View projects",
+    "ctaGithub": "GitHub",
+    "ctaLinkedin": "LinkedIn",
+    "ctaResume": "Download résumé"
+  },
+  "focus": {
+    "label": "01 — Focus",
+    "heading": "What I build",
+    "items": [
+      {
+        "title": "Product Engineering",
+        "description": "Building complete products from interface to infrastructure."
+      },
+      {
+        "title": "Backend & Systems",
+        "description": "APIs, data modeling, persistence, real-time communication and application architecture."
+      },
+      {
+        "title": "AI Integrations",
+        "description": "LLM-powered products, agents, OCR and AI-assisted workflows."
+      },
+      {
+        "title": "Developer Tooling",
+        "description": "Tools that improve how developers understand, operate and automate software."
+      }
+    ]
+  },
+  "projects": {
+    "label": "02 — Selected work",
+    "heading": "Selected projects",
+    "subheading": "Case studies from products I've helped build, end to end — not a wall of repositories.",
+    "roleLabel": "Role",
+    "challengesLabel": "Engineering challenges",
+    "code": "Code",
+    "live": "Live",
+    "stars": "stars",
+    "copyInstall": "Copy install command",
+    "items": {
+      "agentCockpit": {
+        "name": "Agent Cockpit",
+        "category": "Developer Tooling · AI Engineering",
+        "role": "Contributor · Software Engineer",
+        "description": "A local-first control room for developers running multiple Claude Code and Codex agents at once — session management, approvals, diffs, timeline replay and memory editing in a single interface, with no manual hook setup.",
+        "contribution": "Worked on the Claude Code integration layer: session resume and lifecycle handling, token-usage visualization, and the session history UI, including comparison and delete actions.",
+        "challenges": [
+          "Keeping a local daemon in sync with multiple concurrent agent sessions over WebSockets",
+          "Rebuilding Claude session resume without relying on manual hook setup",
+          "Visualizing token usage and session history so it stays legible during long-running sessions"
+        ]
+      },
+      "algoflow": {
+        "name": "AlgoFlow",
+        "category": "Developer Education · Algorithms",
+        "role": "Full-stack Contributor",
+        "description": "An interactive algorithm visualizer with real, step-by-step code execution — 31 algorithms across sorting, searching, data structures and dynamic programming, traced live across 8 languages from Python to Go and C++.",
+        "contribution": "Built the Code Tutor execution flow and contributed B-tree variations and extensible hashing to the data-structures visualizer.",
+        "challenges": [
+          "Tracing real execution — GDB for C/Go, the V8 inspector for JS/TS, source instrumentation for Java/C# — behind one consistent visualizer",
+          "Extending the data-structures module with B-tree variants and extensible hashing",
+          "Keeping the execution sandbox reproducible across 8 languages with Docker"
+        ]
+      },
+      "postable": {
+        "name": "Postable",
+        "category": "AI SaaS · Full-stack",
+        "role": "Developer",
+        "description": "A SaaS platform that helps Brazilian small businesses plan and generate social-media content — analyzing brand context, local trends and competitive gaps to produce platform-specific posts.",
+        "contribution": "Built social-account integration and the posting flow — connecting, syncing and queuing posts across platforms — plus account-facing features on the Next.js frontend.",
+        "challenges": [
+          "Coordinating a three-service architecture — Next.js frontend, Go backend, Python AI service — around one content-generation flow",
+          "Syncing OAuth-connected social accounts and handling pending or partial connection states",
+          "Streaming AI-generated content back to the client over SSE"
+        ]
+      },
+      "hostly": {
+        "name": "Hostly",
+        "category": "Systems · Data Structures · Full-stack",
+        "role": "Full-stack Developer · Contributor",
+        "description": "A full-stack seasonal-rental management platform with a persistence layer built entirely from scratch in Go — no traditional DBMS underneath.",
+        "contribution": "Owned authentication and user-type routing, redesigned the frontend, added map-based property search, and worked across the backend — including XOR password encryption and KMP/BM search.",
+        "challenges": [
+          "Replacing a traditional database with binary-file persistence, tombstones and a custom .hbak backup format",
+          "Implementing extensible hashing, B+ Trees and external merge sort for on-disk indexing and sorting",
+          "Adding Huffman/LZW compression and KMP/BM search on top of the custom storage engine"
+        ]
+      }
+    }
+  },
+  "labs": {
+    "label": "03 — Labs",
+    "heading": "Labs & practice",
+    "subheading": "Smaller repositories — proof of range rather than flagship products.",
+    "items": {
+      "aeds": {
+        "name": "AEDs",
+        "description": "Algorithms & Data Structures coursework at PUC Minas, spanning AEDS I–III."
+      },
+      "leetcode": {
+        "name": "LeetCode",
+        "description": "Problem-solving practice across multiple languages, optimized for time and space complexity."
+      },
+      "arqcs": {
+        "name": "ARQCs",
+        "subtitle": "Computer Architecture",
+        "description": "An SAP-1 processor built in Logisim and a RISC-V (RV32I) core in Verilog with a custom assembler."
+      }
+    }
+  },
+  "stack": {
+    "label": "04 — Stack",
+    "heading": "Technical stack",
+    "subheading": "Grouped by where each tool actually shows up — not skill bars.",
+    "categories": {
+      "languages": "Languages",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "data": "Data",
+      "cloud": "Cloud & DevOps",
+      "ai": "AI & Agents"
+    }
+  },
+  "about": {
+    "label": "05 — About",
+    "heading": "About",
+    "paragraph": "I'm a Computer Science student at PUC Minas focused on software engineering and full-stack product development. I enjoy working across the stack — from React and Next.js interfaces to APIs and backend systems in Go, Python and Java. My projects tend to sit where product engineering meets deeper technical problems: AI-agent orchestration, code execution, custom data structures, automation and cloud integrations.",
+    "currentlyLabel": "Currently",
+    "currentlyLine1": "Computer Science @ PUC Minas",
+    "currentlyLine2": "Building AI & full-stack products",
+    "currentlyLine3": "Belo Horizonte, Brazil",
+    "languagesLabel": "Languages",
+    "languagePortuguese": "Portuguese — Native",
+    "languageEnglish": "English — Intermediate/Advanced"
+  },
+  "education": {
+    "label": "06 — Education",
+    "heading": "Education",
+    "degree": "B.Sc. in Computer Science",
+    "institution": "PUC Minas — Lourdes Campus",
+    "location": "Belo Horizonte, Brazil",
+    "period": "Jan 2025 — Dec 2028"
+  },
+  "contact": {
+    "label": "07 — Contact",
+    "heading": "Let's build something useful.",
+    "subheading": "Interested in software engineering, full-stack, backend and AI opportunities.",
+    "emailLabel": "Email",
+    "copyEmail": "Copy email",
+    "copied": "Copied",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub"
+  },
+  "footer": {
+    "role": "Software Engineer",
+    "backToTop": "Back to top"
+  }
+}

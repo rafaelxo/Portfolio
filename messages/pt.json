@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "title": "Rafael Xavier Oliveira — Engenheiro de Software",
+    "description": "Engenheiro de software que constrói produtos de ponta a ponta — de interfaces e APIs a sistemas de IA, ferramentas para desenvolvedores e backends orientados a dados.",
+    "ogAlt": "Rafael Xavier Oliveira — Engenheiro de Software, Desenvolvedor Fullstack"
+  },
+  "nav": {
+    "about": "Sobre",
+    "projects": "Projetos",
+    "stack": "Stack",
+    "contact": "Contato",
+    "skipToContent": "Pular para o conteúdo",
+    "menuOpen": "Abrir menu",
+    "menuClose": "Fechar menu"
+  },
+  "header": {
+    "themeToLight": "Mudar para tema claro",
+    "themeToDark": "Mudar para tema escuro",
+    "language": "Mudar idioma"
+  },
+  "hero": {
+    "eyebrow": "Engenharia de Software · Desenvolvimento Fullstack",
+    "body": "Construo software de ponta a ponta — de interfaces web modernas e sistemas backend a agentes de IA, ferramentas para desenvolvedores e aplicações orientadas a dados.",
+    "meta": "Ciência da Computação @ PUC Minas",
+    "location": "Belo Horizonte, Brasil",
+    "stackLine": "Go · TypeScript · Python · Java · React · Next.js",
+    "ctaPrimary": "Ver projetos",
+    "ctaGithub": "GitHub",
+    "ctaLinkedin": "LinkedIn",
+    "ctaResume": "Baixar currículo"
+  },
+  "focus": {
+    "label": "01 — Foco",
+    "heading": "O que eu construo",
+    "items": [
+      {
+        "title": "Engenharia de Produto",
+        "description": "Construindo produtos completos, da interface à infraestrutura."
+      },
+      {
+        "title": "Backend & Sistemas",
+        "description": "APIs, modelagem de dados, persistência, comunicação em tempo real e arquitetura de aplicações."
+      },
+      {
+        "title": "Integrações de IA",
+        "description": "Produtos com LLMs, agentes, OCR e fluxos de trabalho assistidos por IA."
+      },
+      {
+        "title": "Ferramentas para Devs",
+        "description": "Ferramentas que melhoram como desenvolvedores entendem, operam e automatizam software."
+      }
+    ]
+  },
+  "projects": {
+    "label": "02 — Trabalhos selecionados",
+    "heading": "Projetos selecionados",
+    "subheading": "Estudos de caso de produtos que ajudei a construir, de ponta a ponta — não uma lista de repositórios.",
+    "roleLabel": "Papel",
+    "challengesLabel": "Desafios de engenharia",
+    "code": "Código",
+    "live": "Ao vivo",
+    "stars": "estrelas",
+    "copyInstall": "Copiar comando de instalação",
+    "items": {
+      "agentCockpit": {
+        "name": "Agent Cockpit",
+        "category": "Ferramentas para Devs · Engenharia de IA",
+        "role": "Contribuidor · Engenheiro de Software",
+        "description": "Uma central local-first para desenvolvedores que rodam múltiplos agentes Claude Code e Codex simultaneamente — gerenciamento de sessões, aprovações, diffs, replay de timeline e edição de memória em uma única interface, sem configuração manual de hooks.",
+        "contribution": "Atuei na camada de integração com o Claude Code: resume e ciclo de vida de sessões, visualização de uso de tokens e a UI de histórico de sessões, incluindo comparação e exclusão.",
+        "challenges": [
+          "Manter um daemon local sincronizado com múltiplas sessões de agentes simultâneas via WebSockets",
+          "Reconstruir o resume de sessões do Claude sem depender de configuração manual de hooks",
+          "Visualizar uso de tokens e histórico de sessões de forma legível mesmo em sessões longas"
+        ]
+      },
+      "algoflow": {
+        "name": "AlgoFlow",
+        "category": "Educação para Devs · Algoritmos",
+        "role": "Contribuidor Full-stack",
+        "description": "Um visualizador interativo de algoritmos com execução real, passo a passo — 31 algoritmos entre ordenação, busca, estruturas de dados e programação dinâmica, rastreados ao vivo em 8 linguagens, de Python a Go e C++.",
+        "contribution": "Desenvolvi o fluxo de execução do Code Tutor e contribuí com variações de árvore B e hashing extensível no visualizador de estruturas de dados.",
+        "challenges": [
+          "Rastrear execução real — GDB para C/Go, o V8 inspector para JS/TS, instrumentação de código-fonte para Java/C# — sob um único visualizador consistente",
+          "Estender o módulo de estruturas de dados com variações de árvore B e hashing extensível",
+          "Manter o sandbox de execução reproduzível em 8 linguagens com Docker"
+        ]
+      },
+      "postable": {
+        "name": "Postable",
+        "category": "SaaS de IA · Full-stack",
+        "role": "Desenvolvedor",
+        "description": "Uma plataforma SaaS que ajuda pequenas empresas brasileiras a planejar e gerar conteúdo para redes sociais — analisando contexto de marca, tendências locais e lacunas da concorrência para gerar posts específicos por plataforma.",
+        "contribution": "Desenvolvi a integração de contas sociais e o fluxo de publicação — conexão, sincronização e fila de posts entre plataformas — além de funcionalidades de conta no frontend em Next.js.",
+        "challenges": [
+          "Coordenar uma arquitetura de três serviços — frontend Next.js, backend Go, serviço de IA em Python — em torno de um único fluxo de geração de conteúdo",
+          "Sincronizar contas sociais conectadas via OAuth e tratar estados de conexão pendente ou parcial",
+          "Transmitir conteúdo gerado por IA para o cliente via SSE"
+        ]
+      },
+      "hostly": {
+        "name": "Hostly",
+        "category": "Sistemas · Estruturas de Dados · Full-stack",
+        "role": "Desenvolvedor Full-stack · Contribuidor",
+        "description": "Uma plataforma full-stack de gestão de aluguel por temporada, com uma camada de persistência construída inteiramente do zero em Go — sem um SGBD tradicional por baixo.",
+        "contribution": "Fui responsável pela autenticação e roteamento por tipo de usuário, redesenhei o frontend, adicionei a busca de imóveis por mapa e atuei no backend — incluindo criptografia XOR de senha e busca com KMP/BM.",
+        "challenges": [
+          "Substituir um banco de dados tradicional por persistência em arquivo binário, tombstones e um formato de backup customizado (.hbak)",
+          "Implementar hashing extensível, árvores B+ e external merge sort para indexação e ordenação em disco",
+          "Adicionar compressão Huffman/LZW e busca KMP/BM sobre o motor de armazenamento customizado"
+        ]
+      }
+    }
+  },
+  "labs": {
+    "label": "03 — Labs",
+    "heading": "Laboratórios & prática",
+    "subheading": "Repositórios menores — prova de amplitude, não produtos principais.",
+    "items": {
+      "aeds": {
+        "name": "AEDs",
+        "description": "Disciplinas de Algoritmos e Estruturas de Dados na PUC Minas, cobrindo AEDS I–III."
+      },
+      "leetcode": {
+        "name": "LeetCode",
+        "description": "Prática de resolução de problemas em múltiplas linguagens, otimizada por complexidade de tempo e espaço."
+      },
+      "arqcs": {
+        "name": "ARQCs",
+        "subtitle": "Arquitetura de Computadores",
+        "description": "Um processador SAP-1 construído no Logisim e um núcleo RISC-V (RV32I) em Verilog com montador customizado."
+      }
+    }
+  },
+  "stack": {
+    "label": "04 — Stack",
+    "heading": "Stack técnica",
+    "subheading": "Agrupada por onde cada ferramenta realmente aparece — sem barras de habilidade.",
+    "categories": {
+      "languages": "Linguagens",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "data": "Dados",
+      "cloud": "Cloud & DevOps",
+      "ai": "IA & Agentes"
+    }
+  },
+  "about": {
+    "label": "05 — Sobre",
+    "heading": "Sobre",
+    "paragraph": "Sou estudante de Ciência da Computação na PUC Minas, com foco em engenharia de software e desenvolvimento full-stack. Gosto de trabalhar de ponta a ponta no produto — de interfaces com React e Next.js a APIs e sistemas backend em Go, Python e Java. Meus projetos costumam unir engenharia de produto a desafios técnicos mais profundos: orquestração de agentes de IA, execução de código, estruturas de dados customizadas, automação e integrações em nuvem.",
+    "currentlyLabel": "Atualmente",
+    "currentlyLine1": "Ciência da Computação @ PUC Minas",
+    "currentlyLine2": "Construindo produtos full-stack e com IA",
+    "currentlyLine3": "Belo Horizonte, Brasil",
+    "languagesLabel": "Idiomas",
+    "languagePortuguese": "Português — Nativo",
+    "languageEnglish": "Inglês — Intermediário/Avançado"
+  },
+  "education": {
+    "label": "06 — Formação",
+    "heading": "Formação",
+    "degree": "Bacharelado em Ciência da Computação",
+    "institution": "PUC Minas — Campus Lourdes",
+    "location": "Belo Horizonte, MG",
+    "period": "Jan 2025 — Dez 2028"
+  },
+  "contact": {
+    "label": "07 — Contato",
+    "heading": "Vamos construir algo útil.",
+    "subheading": "Tenho interesse em oportunidades envolvendo engenharia de software, full-stack, backend e IA.",
+    "emailLabel": "E-mail",
+    "copyEmail": "Copiar e-mail",
+    "copied": "Copiado",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub"
+  },
+  "footer": {
+    "role": "Engenheiro de Software",
+    "backToTop": "Voltar ao topo"
+  }
+}
