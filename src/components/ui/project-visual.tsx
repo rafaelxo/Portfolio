@@ -82,12 +82,14 @@ function HostlyVisual() {
   );
 }
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export function ProjectVisual({ image }: { image: ProjectImage }) {
   if (image.kind === "screenshot") {
     return (
       <div className={wrapperClass}>
         <Image
-          src={image.src}
+          src={`${basePath}${image.src}`}
           alt={image.alt}
           fill
           priority
