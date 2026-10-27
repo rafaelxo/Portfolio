@@ -1,53 +1,55 @@
-export type StackCategory =
-  | "languages"
-  | "frontend"
-  | "backend"
-  | "data"
-  | "cloud"
-  | "ai";
+export type StackCategory = "languages" | "backend" | "frontend" | "mobile" | "data" | "cloud" | "ai";
 
 export interface StackItem {
   name: string;
   category: StackCategory;
 }
 
+/* Tirado do que aparece de fato nos repositórios (públicos e privados). */
 export const stack: StackItem[] = [
-  // Languages
-  { name: "Go", category: "languages" },
   { name: "TypeScript", category: "languages" },
-  { name: "JavaScript", category: "languages" },
-  { name: "Python", category: "languages" },
+  { name: "Go", category: "languages" },
   { name: "Java", category: "languages" },
+  { name: "Python", category: "languages" },
+  { name: "Dart", category: "languages" },
+  { name: "JavaScript", category: "languages" },
+  { name: "C/C++", category: "languages" },
 
-  // Frontend
+  { name: "Node.js", category: "backend" },
+  { name: "Go (net/http, chi)", category: "backend" },
+  { name: "FastAPI", category: "backend" },
+  { name: "Spark (Java)", category: "backend" },
+  { name: "Edge Functions (Deno)", category: "backend" },
+  { name: "WebSockets", category: "backend" },
+  { name: "REST", category: "backend" },
+
   { name: "React", category: "frontend" },
   { name: "Next.js", category: "frontend" },
-  { name: "Tailwind CSS", category: "frontend" },
   { name: "Vite", category: "frontend" },
+  { name: "Tailwind CSS", category: "frontend" },
+  { name: "Zustand", category: "frontend" },
+  { name: "TanStack Query", category: "frontend" },
 
-  // Backend
-  { name: "Go · chi", category: "backend" },
-  { name: "Node.js", category: "backend" },
-  { name: "Express", category: "backend" },
-  { name: "FastAPI", category: "backend" },
-  { name: "WebSockets", category: "backend" },
-  { name: "JWT", category: "backend" },
+  { name: "Flutter", category: "mobile" },
+  { name: "Electron", category: "mobile" },
+  { name: "Tkinter", category: "mobile" },
 
-  // Data
   { name: "PostgreSQL", category: "data" },
+  { name: "Supabase", category: "data" },
+  { name: "SQLite / Drift", category: "data" },
   { name: "MySQL", category: "data" },
-  { name: "SQLite", category: "data" },
 
-  // Cloud & DevOps
   { name: "Docker", category: "cloud" },
+  { name: "Vercel", category: "cloud" },
   { name: "Azure", category: "cloud" },
   { name: "AWS", category: "cloud" },
-  { name: "Supabase", category: "cloud" },
-  { name: "Vercel", category: "cloud" },
-  { name: "Stripe", category: "cloud" },
+  { name: "GitHub Actions", category: "cloud" },
+  { name: "Vitest", category: "cloud" },
 
-  // AI & Tooling
+  { name: "OpenAI (texto, voz, visão)", category: "ai" },
   { name: "Google Gemini", category: "ai" },
+  { name: "OCR (RapidOCR, Tesseract)", category: "ai" },
+  { name: "WebRTC", category: "ai" },
   { name: "Claude Code", category: "ai" },
   { name: "Codex", category: "ai" },
 ];

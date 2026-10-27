@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Rebuild diário para os números do GitHub não envelhecerem
+  schedule:
+    - cron: "0 9 * * *"
 
 permissions:
   contents: read
@@ -20,6 +23,7 @@ jobs:
     env:
       NEXT_PUBLIC_BASE_PATH: /Portfolio
       NEXT_PUBLIC_SITE_URL: https://rafaelxo.github.io/Portfolio
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

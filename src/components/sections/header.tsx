@@ -1,20 +1,26 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Menu, X } from "lucide-react";
-import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/ui/container";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { LanguageToggle } from "@/components/ui/language-toggle";
+import { LocalTime } from "@/components/ui/local-time";
 import { cn } from "@/lib/utils";
+import { useScene } from "@/lib/scroll";
 
-const SECTIONS = ["about", "projects", "stack", "contact"] as const;
+const SECTIONS = ["about", "experience", "projects", "github", "skills", "contact"] as const;
 
 export function Header() {
   const t = useTranslations("nav");
   const [active, setActive] = useState<string>("");
   const [open, setOpen] = useState(false);
+  const bar = useRef<HTMLDivElement>(null);
+
+  useScene(bar, "page", (p) => {
+    bar.current!.style.transform = `scaleX(${p})`;
+  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,47 +32,38 @@ export function Header() {
       },
       { rootMargin: "-40% 0px -50% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] },
     );
-
     SECTIONS.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
-
     return () => observer.disconnect();
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/80 bg-background/85 backdrop-blur-sm">
-      <Container className="flex h-16 items-center justify-between">
-        <Link
-          href="/"
-          className="font-mono text-sm font-semibold tracking-tight text-foreground"
-        >
-          RX<span className="text-accent">.</span>
-        </Link>
+    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
+      <div ref={bar} className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-accent" />
+      <Container className="flex h-14 items-center justify-between gap-4">
+        <a href="#top" className="text-sm font-semibold tracking-tight text-foreground">
+          Rafael Xavier
+        </a>
 
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Main">
+        <nav className="hidden items-center gap-6 md:flex" aria-label="Main">
           {SECTIONS.map((id) => (
             <a
               key={id}
               href={`#${id}`}
               className={cn(
-                "relative py-1 text-sm text-muted-foreground transition-colors hover:text-foreground",
+                "text-[13px] text-muted-foreground transition-colors hover:text-foreground",
                 active === id && "text-foreground",
               )}
             >
               {t(id)}
-              <span
-                className={cn(
-                  "absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-200",
-                  active === id && "scale-x-100",
-                )}
-              />
             </a>
           ))}
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
+          <LocalTime />
           <LanguageToggle />
           <ThemeToggle />
         </div>
@@ -78,7 +75,7 @@ export function Header() {
             aria-label={open ? t("menuClose") : t("menuOpen")}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex size-9 items-center justify-center rounded-full border border-border text-foreground"
+            className="inline-flex size-9 items-center justify-center rounded-md border border-border text-foreground"
           >
             {open ? <X className="size-4" /> : <Menu className="size-4" />}
           </button>
@@ -102,6 +99,7 @@ export function Header() {
               </a>
             ))}
             <div className="mt-2 flex items-center justify-between border-t border-border pt-3">
+              <LocalTime />
               <LanguageToggle />
             </div>
           </Container>

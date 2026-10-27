@@ -8,6 +8,7 @@ import { routing } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Header } from "@/components/sections/header";
 import { Footer } from "@/components/sections/footer";
+import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { social } from "@/data/social";
 
 const geistSans = Geist({
@@ -88,6 +89,10 @@ export default async function LocaleLayout({
       addressRegion: "MG",
       addressCountry: "BR",
     },
+    worksFor: {
+      "@type": "Organization",
+      name: "dti digital",
+    },
     alumniOf: {
       "@type": "CollegeOrUniversity",
       name: "PUC Minas",
@@ -105,7 +110,7 @@ export default async function LocaleLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <NextIntlClientProvider>
             <a
               href="#main"
@@ -113,6 +118,7 @@ export default async function LocaleLayout({
             >
               Skip to content
             </a>
+            <SmoothScroll />
             <Header />
             <main id="main" className="flex-1">
               {children}

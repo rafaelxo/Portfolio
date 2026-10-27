@@ -1,13 +1,15 @@
 {
   "meta": {
     "title": "Rafael Xavier Oliveira — Engenheiro de Software",
-    "description": "Engenheiro de software que constrói produtos de ponta a ponta — de interfaces e APIs a sistemas de IA, ferramentas para desenvolvedores e backends orientados a dados.",
+    "description": "Engenheiro de software (estágio) na dti digital e estudante de Ciência da Computação na PUC Minas. Construo produtos de ponta a ponta — da interface à infraestrutura, com IA e ferramentas para desenvolvedores.",
     "ogAlt": "Rafael Xavier Oliveira — Engenheiro de Software, Desenvolvedor Fullstack"
   },
   "nav": {
     "about": "Sobre",
+    "experience": "Experiência",
     "projects": "Projetos",
-    "stack": "Stack",
+    "github": "GitHub",
+    "skills": "Skills",
     "contact": "Contato",
     "skipToContent": "Pular para o conteúdo",
     "menuOpen": "Abrir menu",
@@ -19,20 +21,50 @@
     "language": "Mudar idioma"
   },
   "hero": {
-    "eyebrow": "Engenharia de Software · Desenvolvimento Fullstack",
-    "body": "Construo software de ponta a ponta — de interfaces web modernas e sistemas backend a agentes de IA, ferramentas para desenvolvedores e aplicações orientadas a dados.",
-    "meta": "Ciência da Computação @ PUC Minas",
-    "location": "Belo Horizonte, Brasil",
-    "stackLine": "Go · TypeScript · Python · Java · React · Next.js",
+    "status": "Engenheiro de software (estágio) na dti digital, Belo Horizonte",
+    "headline": "Construo software de ponta a ponta, da interface à infraestrutura.",
+    "body": "Estagiário de engenharia de software na dti digital e estudante de Ciência da Computação na PUC Minas. Cuido de produto e backend no Pragma, um app de idiomas com tutor de voz por IA, contribuo com o Agent Cockpit e construo de APIs em Go e TypeScript a apps em Flutter.",
     "ctaPrimary": "Ver projetos",
-    "ctaGithub": "GitHub",
-    "ctaLinkedin": "LinkedIn",
-    "ctaResume": "Baixar currículo"
+    "ctaEmail": "Me mande um e-mail",
+    "terminalLabel": "Terminal com dados reais do GitHub",
+    "photoAlt": "Foto de Rafael Xavier Oliveira"
   },
-  "focus": {
-    "label": "01 — Foco",
-    "heading": "O que eu construo",
-    "items": [
+  "highlights": {
+    "contributions": "contribuições no GitHub no último ano",
+    "stars": "estrelas nos meus repositórios públicos",
+    "algoflow": "exercícios em 60 lições no Pragma, além do tutor de voz"
+  },
+  "about": {
+    "heading": "Sobre",
+    "paragraph": "Sou estudante de Ciência da Computação na PUC Minas, com foco em engenharia de software e desenvolvimento full-stack. Gosto de trabalhar de ponta a ponta no produto — de interfaces com React e Next.js a APIs e sistemas backend em Go, Python e Java. Meus projetos costumam unir engenharia de produto a desafios técnicos mais profundos: orquestração de agentes de IA, execução de código, estruturas de dados customizadas, automação e integrações em nuvem.",
+    "rows": [
+      [
+        "agora",
+        "Estagiário de Engenharia de Software na dti digital"
+      ],
+      [
+        "formação",
+        "Bacharelado em Ciência da Computação, PUC Minas (2025–2028)"
+      ],
+      [
+        "foco",
+        "Produto full-stack, backends, integrações de IA e ferramentas para devs"
+      ],
+      [
+        "prática",
+        "Exercícios de algoritmos no LeetCode, em C++, Java e Kotlin, para treinar"
+      ],
+      [
+        "idiomas",
+        "Português (nativo), Inglês (intermediário/avançado)"
+      ],
+      [
+        "local",
+        "Belo Horizonte, MG, Brasil"
+      ]
+    ],
+    "buildHeading": "O que gosto de construir",
+    "build": [
       {
         "title": "Engenharia de Produto",
         "description": "Construindo produtos completos, da interface à infraestrutura."
@@ -49,12 +81,53 @@
         "title": "Ferramentas para Devs",
         "description": "Ferramentas que melhoram como desenvolvedores entendem, operam e automatizam software."
       }
-    ]
+    ],
+    "educationHeading": "Formação",
+    "degree": "Bacharelado em Ciência da Computação, PUC Minas",
+    "period": "2025 — 2028",
+    "progress": "{n}º de 8 semestres"
+  },
+  "experience": {
+    "heading": "Experiência",
+    "current": "atual",
+    "month": "mês",
+    "months": "meses",
+    "items": {
+      "dti": {
+        "company": "dti digital",
+        "role": "Engenheiro de Software · Estágio",
+        "period": "out. 2026 — atual",
+        "location": "Belo Horizonte · Híbrido",
+        "highlights": [],
+        "intro": "No time desde outubro de 2026."
+      },
+      "agentCockpit": {
+        "company": "Agent Cockpit",
+        "role": "Contribuidor open source",
+        "period": "abr. 2026 — mai. 2026",
+        "location": "Remoto",
+        "highlights": [
+          "Atuei na camada de integração com o Claude Code: resume e ciclo de vida de sessões, visualização de uso de tokens e a UI de histórico de sessões, incluindo comparação e exclusão."
+        ]
+      }
+    }
   },
   "projects": {
-    "label": "02 — Trabalhos selecionados",
-    "heading": "Projetos selecionados",
-    "subheading": "Estudos de caso de produtos que ajudei a construir, de ponta a ponta — não uma lista de repositórios.",
+    "heading": "Projetos",
+    "hint": "Clique numa linha para ver detalhes",
+    "count": "{n} projetos",
+    "columns": {
+      "status": "status",
+      "project": "projeto",
+      "stack": "stack",
+      "period": "período"
+    },
+    "status": {
+      "live": "live",
+      "npm": "npm",
+      "repo": "repo",
+      "private": "privado"
+    },
     "roleLabel": "Papel",
     "challengesLabel": "Desafios de engenharia",
     "code": "Código",
@@ -62,6 +135,19 @@
     "stars": "estrelas",
     "copyInstall": "Copiar comando de instalação",
     "items": {
+      "pragma": {
+        "name": "Pragma",
+        "category": "Mobile · IA · Educação",
+        "role": "Produto e Backend · equipe de 6",
+        "description": "Aplicativo de idiomas que transforma estudo em capacidade real de conversa: microlições de até 5 minutos, um grafo ponderado de habilidades que decide o que estudar em seguida (BFS, DFS e ordenação topológica), um tutor de voz com IA, o Synth, e o World Mode, que transforma a foto de um ambiente em exercícios.",
+        "contribution": "Coordenei o produto e respondi pelo backend: migrations e Edge Functions no Supabase, autenticação com nivelamento oral antes do cadastro, Mastery com dificuldade e esquecimento calibrado no Fluency Map, o banco de 60 lições e 984 exercícios, modo offline com SQLite (Drift) e a landing page.",
+        "challenges": [
+          "Conversa por voz em tempo real via WebRTC, negociada por um serviço em Go que mantém a chave da OpenAI fora do app e controla a cota diária de cada plano",
+          "Recomendar a próxima habilidade pelos pesos das arestas do grafo e pela confiança de cada habilidade, que decai com o tempo",
+          "Corrigir os exercícios de fala no servidor e levar a cobertura de testes a 80%, com testes HTTP no serviço em Go"
+        ],
+        "period": "set. — out. 2026"
+      },
       "agentCockpit": {
         "name": "Agent Cockpit",
         "category": "Ferramentas para Devs · Engenharia de IA",
@@ -72,7 +158,8 @@
           "Manter um daemon local sincronizado com múltiplas sessões de agentes simultâneas via WebSockets",
           "Reconstruir o resume de sessões do Claude sem depender de configuração manual de hooks",
           "Visualizar uso de tokens e histórico de sessões de forma legível mesmo em sessões longas"
-        ]
+        ],
+        "period": "abr. — mai. 2026"
       },
       "algoflow": {
         "name": "AlgoFlow",
@@ -84,19 +171,8 @@
           "Rastrear execução real — GDB para C/Go, o V8 inspector para JS/TS, instrumentação de código-fonte para Java/C# — sob um único visualizador consistente",
           "Estender o módulo de estruturas de dados com variações de árvore B e hashing extensível",
           "Manter o sandbox de execução reproduzível em 8 linguagens com Docker"
-        ]
-      },
-      "postable": {
-        "name": "Postable",
-        "category": "SaaS de IA · Full-stack",
-        "role": "Desenvolvedor",
-        "description": "Uma plataforma SaaS que ajuda pequenas empresas brasileiras a planejar e gerar conteúdo para redes sociais — analisando contexto de marca, tendências locais e lacunas da concorrência para gerar posts específicos por plataforma.",
-        "contribution": "Desenvolvi a integração de contas sociais e o fluxo de publicação — conexão, sincronização e fila de posts entre plataformas — além de funcionalidades de conta no frontend em Next.js.",
-        "challenges": [
-          "Coordenar uma arquitetura de três serviços — frontend Next.js, backend Go, serviço de IA em Python — em torno de um único fluxo de geração de conteúdo",
-          "Sincronizar contas sociais conectadas via OAuth e tratar estados de conexão pendente ou parcial",
-          "Transmitir conteúdo gerado por IA para o cliente via SSE"
-        ]
+        ],
+        "period": "abr. 2026"
       },
       "hostly": {
         "name": "Hostly",
@@ -108,75 +184,97 @@
           "Substituir um banco de dados tradicional por persistência em arquivo binário, tombstones e um formato de backup customizado (.hbak)",
           "Implementar hashing extensível, árvores B+ e external merge sort para indexação e ordenação em disco",
           "Adicionar compressão Huffman/LZW e busca KMP/BM sobre o motor de armazenamento customizado"
-        ]
-      }
-    }
-  },
-  "labs": {
-    "label": "03 — Labs",
-    "heading": "Laboratórios & prática",
-    "subheading": "Repositórios menores — prova de amplitude, não produtos principais.",
-    "items": {
+        ],
+        "period": "fev. — set. 2026"
+      },
+      "timeAwards": {
+        "name": "TimeAwards",
+        "category": "IA · Produtividade · Full-stack",
+        "role": "Desenvolvedor Full-stack · equipe de 4",
+        "description": "Plataforma web de gestão de tempo em que as atividades são registradas por texto, voz ou foto: o GPT-4o transforma texto livre em atividades estruturadas, o Tesseract lê imagens e a Web Speech API transcreve a fala, alimentando dashboards semanais e recomendações com IA.",
+        "contribution": "Trabalho Interdisciplinar II da PUC Minas, feito por uma equipe de quatro pessoas. O repositório público, que mantenho, reúne o backend em Java, o frontend web e as integrações de IA.",
+        "challenges": [
+          "Transformar texto livre como “estudei matemática por 3 horas, prioridade alta” em atividades estruturadas com GPT-4o, com fallback local quando a API está fora",
+          "Levar três canais de entrada — texto, voz e imagem — para o mesmo modelo de atividade",
+          "Agendar relatórios diários e semanais por e-mail com acompanhamento de metas por categoria"
+        ],
+        "period": "nov. 2025 — 2026"
+      },
+      "cards": {
+        "name": "CARDS",
+        "category": "Visão computacional · Desktop",
+        "role": "Autor",
+        "description": "App desktop que lê comprovantes de cartão pela webcam e lança tudo numa planilha: espera a nota parar na câmera, extrai bandeira, tipo, valor e data com OCR e grava no Excel.",
+        "contribution": "Projeto próprio, do motor de OCR à interface em Tkinter e ao executável gerado com PyInstaller.",
+        "challenges": [
+          "OCR rápido em CPU com RapidOCR (PP-OCRv5 em ONNX Runtime, cerca de 0,1 s por leitura), com Tesseract como alternativa",
+          "Detectar a nota parada comparando quadros seguidos, para não ler a mesma nota duas vezes",
+          "Reconhecer bandeiras e tipos de pagamento com regras que toleram erros comuns de OCR, como 1 no lugar de l"
+        ],
+        "period": "abr. — out. 2026"
+      },
+      "postable": {
+        "name": "Postable",
+        "category": "SaaS de IA · Full-stack",
+        "role": "Desenvolvedor",
+        "description": "Uma plataforma SaaS que ajuda pequenas empresas brasileiras a planejar e gerar conteúdo para redes sociais — analisando contexto de marca, tendências locais e lacunas da concorrência para gerar posts específicos por plataforma.",
+        "contribution": "Desenvolvi a integração de contas sociais e o fluxo de publicação — conexão, sincronização e fila de posts entre plataformas — além de funcionalidades de conta no frontend em Next.js.",
+        "challenges": [
+          "Coordenar uma arquitetura de três serviços — frontend Next.js, backend Go, serviço de IA em Python — em torno de um único fluxo de geração de conteúdo",
+          "Sincronizar contas sociais conectadas via OAuth e tratar estados de conexão pendente ou parcial",
+          "Transmitir conteúdo gerado por IA para o cliente via SSE"
+        ],
+        "period": "mar. 2026"
+      },
       "aeds": {
         "name": "AEDs",
-        "description": "Disciplinas de Algoritmos e Estruturas de Dados na PUC Minas, cobrindo AEDS I–III."
-      },
-      "leetcode": {
-        "name": "LeetCode",
-        "description": "Prática de resolução de problemas em múltiplas linguagens, otimizada por complexidade de tempo e espaço."
-      },
-      "arqcs": {
-        "name": "ARQCs",
-        "subtitle": "Arquitetura de Computadores",
-        "description": "Um processador SAP-1 construído no Logisim e um núcleo RISC-V (RV32I) em Verilog com montador customizado."
+        "category": "Algoritmos · Estruturas de Dados",
+        "description": "Algoritmos e Estruturas de Dados I a III e Grafos na PUC Minas, em C, C++, Java e Go — o repositório mais estrelado do meu perfil.",
+        "period": "2025 — atual"
       }
-    }
+    },
+    "privateNote": "Repositório privado da PUC Minas — posso mostrar em uma conversa."
   },
-  "stack": {
-    "label": "04 — Stack",
-    "heading": "Stack técnica",
-    "subheading": "Agrupada por onde cada ferramenta realmente aparece — sem barras de habilidade.",
+  "github": {
+    "heading": "GitHub, ao vivo",
+    "contributions": "contribuições no último ano",
+    "less": "menos",
+    "more": "mais",
+    "hover": "Passe o mouse num dia para ver detalhes",
+    "activity": "Atividade pública recente",
+    "pinned": "Fixados no perfil",
+    "events": {
+      "PushEvent": "push",
+      "PullRequestEvent": "pull request",
+      "CreateEvent": "criou",
+      "IssuesEvent": "issue",
+      "WatchEvent": "star",
+      "ForkEvent": "fork",
+      "ReleaseEvent": "release",
+      "PublicEvent": "publicou"
+    },
+    "noActivity": "Sem atividade pública recente.",
+    "orgs": "Organizações"
+  },
+  "skills": {
+    "heading": "Skills",
     "categories": {
       "languages": "Linguagens",
       "frontend": "Frontend",
       "backend": "Backend",
       "data": "Dados",
       "cloud": "Cloud & DevOps",
-      "ai": "IA & Agentes"
+      "ai": "IA & Agentes",
+      "mobile": "mobile & desktop"
     }
   },
-  "about": {
-    "label": "05 — Sobre",
-    "heading": "Sobre",
-    "paragraph": "Sou estudante de Ciência da Computação na PUC Minas, com foco em engenharia de software e desenvolvimento full-stack. Gosto de trabalhar de ponta a ponta no produto — de interfaces com React e Next.js a APIs e sistemas backend em Go, Python e Java. Meus projetos costumam unir engenharia de produto a desafios técnicos mais profundos: orquestração de agentes de IA, execução de código, estruturas de dados customizadas, automação e integrações em nuvem.",
-    "currentlyLabel": "Atualmente",
-    "currentlyLine1": "Ciência da Computação @ PUC Minas",
-    "currentlyLine2": "Construindo produtos full-stack e com IA",
-    "currentlyLine3": "Belo Horizonte, Brasil",
-    "languagesLabel": "Idiomas",
-    "languagePortuguese": "Português — Nativo",
-    "languageEnglish": "Inglês — Intermediário/Avançado"
-  },
-  "education": {
-    "label": "06 — Formação",
-    "heading": "Formação",
-    "degree": "Bacharelado em Ciência da Computação",
-    "institution": "PUC Minas — Campus Lourdes",
-    "location": "Belo Horizonte, MG",
-    "period": "Jan 2025 — Dez 2028"
-  },
   "contact": {
-    "label": "07 — Contato",
-    "heading": "Vamos construir algo útil.",
-    "subheading": "Tenho interesse em oportunidades envolvendo engenharia de software, full-stack, backend e IA.",
-    "emailLabel": "E-mail",
+    "heading": "Contato",
+    "body": "Se quiser falar sobre engenharia de software, produtos com IA, ferramentas para desenvolvedores ou tiver algo que vale a pena construir junto, me mande um e-mail.",
     "copyEmail": "Copiar e-mail",
-    "copied": "Copiado",
-    "linkedinLabel": "LinkedIn",
-    "githubLabel": "GitHub"
+    "copied": "Copiado"
   },
   "footer": {
-    "role": "Engenheiro de Software",
-    "backToTop": "Voltar ao topo"
+    "line": "Belo Horizonte"
   }
 }
