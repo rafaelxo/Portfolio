@@ -2,34 +2,35 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Paleta preto + verde. O tema escuro é o padrão (ver ThemeProvider no layout). */
+/* Paleta "royal": o azul #4169e1 do meu README do GitHub sobre um fundo levemente azulado.
+   O verde fica só para status (disponível / no ar). O tema escuro é o padrão. */
 :root {
-  --background: #fafafa;
+  --background: #f5f6fa;
   --surface: #ffffff;
-  --surface-hover: #f4f4f5;
-  --foreground: #0a0a0a;
-  --muted-foreground: #5c5c63;
-  --faint: #8e8e96;
-  --border: #e4e4e7;
-  --accent: #16a34a;
+  --surface-hover: #eef0f6;
+  --foreground: #0b0d14;
+  --muted-foreground: #525a6e;
+  --faint: #8a90a2;
+  --border: #e0e4ee;
+  --accent: #3a5bd9;
   --accent-foreground: #ffffff;
   --available: #16a34a;
-  --grid: rgb(0 0 0 / 0.035);
+  --grid: rgb(30 40 90 / 0.04);
   --radius: 0.75rem;
 }
 
 .dark {
-  --background: #0a0a0a;
-  --surface: #0f0f0f;
-  --surface-hover: #161616;
-  --foreground: #ededed;
-  --muted-foreground: #9a9a9a;
-  --faint: #5f5f5f;
-  --border: #1f1f1f;
-  --accent: #22c55e;
-  --accent-foreground: #0a0a0a;
-  --available: #22c55e;
-  --grid: rgb(255 255 255 / 0.028);
+  --background: #090a10;
+  --surface: #0f111a;
+  --surface-hover: #151827;
+  --foreground: #e7e9f0;
+  --muted-foreground: #959aad;
+  --faint: #5d6276;
+  --border: #1c1f2e;
+  --accent: #6f8cff;
+  --accent-foreground: #090a10;
+  --available: #34d399;
+  --grid: rgb(120 140 255 / 0.035);
 }
 
 @theme inline {
