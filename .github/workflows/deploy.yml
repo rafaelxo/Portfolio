@@ -24,6 +24,8 @@ jobs:
       NEXT_PUBLIC_BASE_PATH: /Portfolio
       NEXT_PUBLIC_SITE_URL: https://rafaelxo.github.io/Portfolio
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Opcional: token pessoal (read-only) para incluir repositórios privados nas linguagens
+      GH_STATS_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

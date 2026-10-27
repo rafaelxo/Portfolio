@@ -2,9 +2,11 @@ import { cache } from "react";
 
 /* Tudo aqui roda no build (site estático). Com GITHUB_TOKEN no ambiente o limite da API
    sobe; sem ele, cada função cai num valor seguro em vez de quebrar o build. */
+// GH_STATS_TOKEN (token pessoal, opcional) enxerga também os repositórios privados
+const token = process.env.GH_STATS_TOKEN || process.env.GITHUB_TOKEN;
 const headers: HeadersInit = {
   Accept: "application/vnd.github+json",
-  ...(process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}),
+  ...(token ? { Authorization: `Bearer ${token}` } : {}),
 };
 
 async function api<T>(path: string): Promise<T | null> {
@@ -75,7 +77,7 @@ type RestRepo = {
 /* Fixados do perfil: GraphQL quando há token; sem token, lê os nomes do HTML público do
    perfil e completa cada um pela API REST (que não exige autenticação). */
 async function getPinned(user: string): Promise<PinnedRepo[]> {
-  if (process.env.GITHUB_TOKEN) {
+  if (token) {
     try {
       const res = await fetch("https://api.github.com/graphql", {
         method: "POST",
@@ -163,6 +165,74 @@ async function getContributions(user: string) {
   }
 }
 
+/* Repositórios de treino: contam no calendário, mas não definem as "linguagens atuais". */
+const PRACTICE = new Set(["rafaelxo/leetcode", "rafaelxo/arqcs"]);
+
+/* Estrelas e linguagens a partir do trabalho real, via GraphQL (precisa de token):
+   - estrelas: repositórios públicos meus + os das organizações em que commitei no último ano;
+   - linguagens: commits do último ano por repositório, repartidos pelo tamanho de cada
+     linguagem no repo. Com GH_STATS_TOKEN (token pessoal) os repositórios privados entram também. */
+async function getWorkStats(user: string) {
+  if (!token) return null;
+  type Lang = { size: number; node: { name: string } };
+  type RepoNode = {
+    nameWithOwner: string;
+    isFork: boolean;
+    isPrivate: boolean;
+    stargazerCount: number;
+    languages: { edges: Lang[] };
+  };
+  const langs = "languages(first: 8, orderBy: { field: SIZE, direction: DESC }) { edges { size node { name } } }";
+  try {
+    const res = await fetch("https://api.github.com/graphql", {
+      method: "POST",
+      headers: { ...headers, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        query: `{ user(login: "${user}") {
+          repositories(ownerAffiliations: OWNER, isFork: false, first: 100) {
+            nodes { nameWithOwner isFork isPrivate stargazerCount ${langs} } }
+          contributionsCollection { commitContributionsByRepository(maxRepositories: 100) {
+            contributions { totalCount }
+            repository { nameWithOwner isFork isPrivate stargazerCount ${langs} } } } } }`,
+      }),
+    });
+    const json = (await res.json()) as {
+      data?: {
+        user: {
+          repositories: { nodes: RepoNode[] };
+          contributionsCollection: {
+            commitContributionsByRepository: { contributions: { totalCount: number }; repository: RepoNode }[];
+          };
+        };
+      };
+    };
+    const u = json.data?.user;
+    if (!u) return null;
+
+    const repos = new Map<string, RepoNode>();
+    for (const r of u.repositories.nodes) repos.set(r.nameWithOwner, r);
+    for (const c of u.contributionsCollection.commitContributionsByRepository) repos.set(c.repository.nameWithOwner, c.repository);
+    const stars = [...repos.values()].filter((r) => !r.isFork && !r.isPrivate).reduce((n, r) => n + r.stargazerCount, 0);
+
+    const weight = new Map<string, number>();
+    for (const { contributions, repository: r } of u.contributionsCollection.commitContributionsByRepository) {
+      const key = r.nameWithOwner.toLowerCase();
+      if (r.isFork || PRACTICE.has(key) || key === `${user}/${user}`.toLowerCase()) continue;
+      const total = r.languages.edges.reduce((n, e) => n + e.size, 0);
+      for (const e of r.languages.edges)
+        weight.set(e.node.name, (weight.get(e.node.name) ?? 0) + (contributions.totalCount * e.size) / (total || 1));
+    }
+    const sum = [...weight.values()].reduce((a, b) => a + b, 0) || 1;
+    const sorted = [...weight.entries()].sort((a, b) => b[1] - a[1]);
+    const languages = sorted.slice(0, 6).map(([name, v]) => ({ name, share: v / sum }));
+    const rest = 1 - languages.reduce((a, b) => a + b.share, 0);
+    if (sorted.length > 6 && rest > 0.001) languages.push({ name: "Other", share: rest });
+    return { stars, languages };
+  } catch {
+    return null;
+  }
+}
+
 export const getGitHub = cache(async (user: string): Promise<GitHubData> => {
   const [profile, list, contributions, pinned, activity] = await Promise.all([
     api<{ public_repos: number; followers: number }>(`/users/${user}`),
@@ -184,20 +254,12 @@ export const getGitHub = cache(async (user: string): Promise<GitHubData> => {
 
   // O repositório com o README do perfil não é um projeto
   const own = (list ?? []).filter((r) => !r.fork && r.name.toLowerCase() !== user.toLowerCase());
-
-  const bytes = new Map<string, number>();
-  const langs = await Promise.all(own.map((r) => api<Record<string, number>>(`/repos/${user}/${r.name}/languages`)));
-  langs.forEach((l) => Object.entries(l ?? {}).forEach(([k, v]) => bytes.set(k, (bytes.get(k) ?? 0) + v)));
-  const sum = [...bytes.values()].reduce((a, b) => a + b, 0) || 1;
-  const sorted = [...bytes.entries()].sort((a, b) => b[1] - a[1]);
-  const top = sorted.slice(0, 6).map(([name, v]) => ({ name, share: v / sum }));
-  const rest = 1 - top.reduce((a, b) => a + b.share, 0);
-  if (sorted.length > 6 && rest > 0) top.push({ name: "Other", share: rest });
+  const work = await getWorkStats(user);
 
   return {
     repos: profile?.public_repos ?? FALLBACK.repos,
     followers: profile?.followers ?? FALLBACK.followers,
-    stars: list ? (list.filter((r) => !r.fork).reduce((n, r) => n + r.stargazers_count, 0)) : FALLBACK.stars,
+    stars: work?.stars ?? FALLBACK.stars,
     topRepos: [...own]
       .sort((a, b) => b.stargazers_count - a.stargazers_count || b.pushed_at.localeCompare(a.pushed_at))
       .slice(0, 6)
@@ -209,7 +271,7 @@ export const getGitHub = cache(async (user: string): Promise<GitHubData> => {
         stars: r.stargazers_count,
         pushedAt: r.pushed_at,
       })),
-    languages: list ? top : [],
+    languages: work?.languages ?? [],
     contributions,
     pinned,
     activity,
